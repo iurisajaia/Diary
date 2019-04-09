@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/styles": "latest",
+    "@material-ui/icons": "latest",
+    "@material-ui/core": "latest",
     "@reach/router": "^1.2.1",
     "create-react-context": "^0.2.3",
     "proxy": "^0.2.4",
