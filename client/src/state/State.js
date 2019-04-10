@@ -21,10 +21,30 @@ class MyProvider extends Component {
     e.preventDefault();
     var ul = e.target.parentElement.parentElement.parentElement.parentElement;
     var li = e.target.parentElement.parentElement.parentElement;
-    // console.log(li)
     li.remove();
   }
 
+  handleRegistration = e => {
+    e.preventDefault();
+
+    const data = {
+      name: e.target.firstname.value,
+      lastname: e.target.lastname.value,
+      email: e.target.email.value,
+      password: e.target.password.value
+    }
+    console.log(data)
+  }
+
+  hadleLogin = e => {
+    e.preventDefault();
+
+    const data = {
+      email: e.target.loginEmail.value,
+      password: e.target.loginPassword.value
+    }
+    console.log(data)
+  }
 
 
   componentClicked = () => console.log("clicked");
@@ -50,7 +70,9 @@ class MyProvider extends Component {
           responseFacebook: this.responseFacebook,
           componentClicked: this.componentClicked,
           addQuestionToDiary: this.addQuestionToDiary,
-          removeQuestion: this.removeQuestion
+          removeQuestion: this.removeQuestion,
+          handleRegistration: this.handleRegistration,
+          hadleLogin: this.hadleLogin
         }}
       >
         {this.props.children}
