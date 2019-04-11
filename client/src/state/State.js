@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import axios from 'axios'
 export const MyContext = React.createContext();
 
 
@@ -8,13 +8,53 @@ class MyProvider extends Component {
     questions: []
   };
 
+  componentDidMount() {
+    const token = localStorage.getItem("user");
+    if (token) {
+      axios
+        .get("/profile", {
+          headers: {
+            "x-auth-token": token
+          }
+        })
+        .then(res => {
+          var user = res.data.user
+          this.setState({ user, questions: user.questions })
+          console.log(this.state)
+        })
+        .catch(err => {
+          console.log(err);
+        });
+
+
+    }
+  }
   addQuestionToDiary = (e) => {
     e.preventDefault()
-    var questions = this.state.questions;
-    var question = e.target.question.value;
-    questions.push(question);
-    this.setState({ questions })
-    console.log(this.state)
+
+    var data = {
+      id: this.state.user._id,
+      question: e.target.question.value
+    };
+
+
+    fetch('/add-question', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.user) {
+          this.setState({ user: res.user, questions: res.user.questions })
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
 
   removeQuestion = e => {
@@ -75,9 +115,8 @@ class MyProvider extends Component {
     })
       .then(res => res.json())
       .then(res => {
-        console.log(res)
-        if (res.user) {
-          console.log(res.user)
+        if (res.token) {
+          localStorage.setItem("user", res.token);
         }
       })
       .catch(error => {

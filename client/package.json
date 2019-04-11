@@ -7,6 +7,7 @@
     "@material-ui/icons": "latest",
     "@material-ui/styles": "latest",
     "@reach/router": "^1.2.1",
+    "axios": "^0.18.0",
     "create-react-context": "^0.2.3",
     "proxy": "^0.2.4",
     "react": "^16.8.6",
