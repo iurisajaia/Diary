@@ -19,8 +19,6 @@ class Wellcome extends Component {
                 fields="name,email,friends,picture"
                 scope="public_profile,email,user_friends"
                 disableMobileRedirect={true}
-                onClick={this.context.componentClicked}
-                callback={this.context.responseFacebook}
             />
         );
         return (

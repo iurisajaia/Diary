@@ -24,11 +24,9 @@ const UserSchema = new Schema({
         required: true
     },
 
-    gender: {
-        type: String,
-        required: true
+    questions: {
+        type: Array
     },
-
     isAdmin: {
         type: Boolean,
         default: false

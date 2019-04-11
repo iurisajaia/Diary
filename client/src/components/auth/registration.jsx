@@ -94,8 +94,24 @@ function OutlinedInputAdornments() {
                             <Button type="submit" variant="contained" color="primary" className="registration-button">
                                 რეგისტრაცია
       </Button>
+
+                            {context.state.errors ? (
+                                <div className="alerts mt-2">
+                                    <div className="custom-alert_danger">{context.state.errors}</div>
+                                </div>
+                            ) : null}
+
+                            {context.state.success ? (
+                                <div className="alerts mt-2">
+                                    <div className="custom-alert_success">{context.state.success}</div>
+                                </div>
+                            ) : null}
+
+
+
                         </form>
                     </div>
+
                 </>
             )}
         </MyContext.Consumer>

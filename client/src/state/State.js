@@ -28,13 +28,34 @@ class MyProvider extends Component {
     e.preventDefault();
 
     const data = {
-      name: e.target.firstname.value,
+      firstname: e.target.firstname.value,
       lastname: e.target.lastname.value,
       email: e.target.email.value,
       password: e.target.password.value
     }
-    console.log(data)
-  }
+
+
+    fetch('/registration', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.msg) {
+          this.setState({ errors: res.msg })
+          console.log(this.state.errors)
+        } else {
+          this.setState({ success: 'თქვენ წარმტებით გაიარეთ რეგისტრაცია', errors: null })
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
 
   hadleLogin = e => {
     e.preventDefault();
@@ -43,32 +64,35 @@ class MyProvider extends Component {
       email: e.target.loginEmail.value,
       password: e.target.loginPassword.value
     }
-    console.log(data)
+
+    fetch('/login', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res)
+        if (res.user) {
+          console.log(res.user)
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
 
 
-  componentClicked = () => console.log("clicked");
 
-  responseFacebook = response => {
-    console.log(response);
-
-    this.setState({
-      isLoggedIn: true,
-      userID: response.userID,
-      name: response.name,
-      email: response.email,
-      picture: response.picture.data.url
-    });
-
-  };
 
   render() {
     return (
       <MyContext.Provider
         value={{
           state: this.state,
-          responseFacebook: this.responseFacebook,
-          componentClicked: this.componentClicked,
           addQuestionToDiary: this.addQuestionToDiary,
           removeQuestion: this.removeQuestion,
           handleRegistration: this.handleRegistration,

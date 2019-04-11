@@ -1,10 +1,13 @@
 const express = require('express');
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 const app = express();
 
+const users = require("./routes/users");
 
-
-
+// Use Cors
+app.use(cors());
 // Connect to MongoDB
 const db = require("./config/keys").mongoURI;
 mongoose
@@ -14,9 +17,10 @@ mongoose
 	.then(() => console.log("MongoDB Connected"))
 	.catch(err => console.log(err));
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
 
 
-const users = require("./routes/users");
 
 // Use Routes
 app.use("/", users);
