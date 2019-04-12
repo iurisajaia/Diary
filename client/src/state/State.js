@@ -13,7 +13,7 @@ class MyProvider extends Component {
     const token = localStorage.getItem("user");
     if (token) {
       axios
-        .get("/profile", {
+        .get("/profile/:id", {
           headers: {
             "x-auth-token": token
           }
