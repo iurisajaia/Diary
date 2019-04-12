@@ -35,75 +35,81 @@ class Layout extends Component {
             <MyContext.Consumer>
                 {context => (
                     <>
+
                         {context.state.user ? (
                             <>
-                                <div >
-                                    <CssBaseline />
-
-                                    <AppBar
-                                        position="fixed"
-
-                                    >
-                                        <Toolbar >
-                                            <IconButton
-                                                color="inherit"
-                                                aria-label="Open drawer"
+                                {this.props.id === context.state.user._id ? (
 
 
-                                            >
-                                                <MenuIcon />
-                                            </IconButton>
-                                            <div className="flex">
-                                                <Avatar alt="Remy Sharp" src="https://scontent.ftbs6-1.fna.fbcdn.net/v/t1.15752-9/56340115_774556886259978_7983333524444807168_n.jpg?_nc_cat=110&_nc_ht=scontent.ftbs6-1.fna&oh=94412567c9287289ec44f224a43e20a5&oe=5D4EC847" className="mr-3 ml-2" />
-                                                <Typography variant="h6" color="inherit" noWrap>
-                                                    {context.state.user ? (
-                                                        <>
-                                                            {context.state.user.firstname} {context.state.user.lastname}
+                                    <div >
+                                        <CssBaseline />
 
-                                                        </>
-                                                    ) : <p>სახელი გვარი</p>}
-                                                </Typography>
+                                        <AppBar
+                                            position="fixed"
+
+                                        >
+                                            <Toolbar >
+                                                <IconButton
+                                                    color="inherit"
+                                                    aria-label="Open drawer"
+
+
+                                                >
+                                                    <MenuIcon />
+                                                </IconButton>
+                                                <div className="flex">
+                                                    <Avatar alt="Remy Sharp" src="https://scontent.ftbs6-1.fna.fbcdn.net/v/t1.15752-9/56340115_774556886259978_7983333524444807168_n.jpg?_nc_cat=110&_nc_ht=scontent.ftbs6-1.fna&oh=94412567c9287289ec44f224a43e20a5&oe=5D4EC847" className="mr-3 ml-2" />
+                                                    <Typography variant="h6" color="inherit" noWrap>
+                                                        {context.state.user ? (
+                                                            <>
+                                                                {context.state.user.firstname} {context.state.user.lastname}
+
+                                                            </>
+                                                        ) : <p>სახელი გვარი</p>}
+                                                    </Typography>
+                                                </div>
+                                            </Toolbar>
+                                        </AppBar>
+
+                                        <Drawer
+
+                                            variant="persistent"
+                                            anchor="left"
+
+
+                                        >
+                                            <div>
+                                                <IconButton >
+
+                                                </IconButton>
                                             </div>
-                                        </Toolbar>
-                                    </AppBar>
-
-                                    <Drawer
-
-                                        variant="persistent"
-                                        anchor="left"
-                                       
-                                       
-                                    >
-                                        <div>
-                                            <IconButton >
-                                                
-                                            </IconButton>
-                                        </div>
-                                        <Divider />
+                                            <Divider />
 
 
-                                        <Divider />
+                                            <Divider />
 
-                                        <AsideSection />
-                                    </Drawer>
+                                            <AsideSection />
+                                        </Drawer>
 
-                                    <main
+                                        <main
 
-                                    >
+                                        >
 
-                                        <div />
+                                            <div />
 
-                                        {/* <Modal  /> */}
+                                            {/* <Modal  /> */}
 
-                                        <div id="tab-1" className="tab-content current">
-                                            <QuestionsList />
-                                        </div>
-                                        <div id="tab-2" className="tab-content">
-                                            <Friends />
-                                        </div>
+                                            <div id="tab-1" className="tab-content current">
+                                                <QuestionsList />
+                                            </div>
+                                            <div id="tab-2" className="tab-content">
+                                                <Friends />
+                                            </div>
 
-                                    </main>
-                                </div>
+                                        </main>
+                                    </div>
+
+                                ) : <p>შიგთავსი მიუწვდომელია</p>}
                             </>
                         ) : <p>სამწუხაროდ თქვენ არ ხართ ავტორიზებული</p>}
                     </>

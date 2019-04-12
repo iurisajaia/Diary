@@ -22,6 +22,7 @@ class PublicDiary extends Component {
                 if (res.data.questions) {
 
                     this.setState({ questions: res.data.questions })
+                    console.log(this.state)
                 }
 
             })
@@ -31,17 +32,21 @@ class PublicDiary extends Component {
 
     }
     render() {
+        if (this.state.questions) {
 
+            var questions = this.state.questions;
+        }
         return (
             <MyContext.Consumer>
                 {context => (
                     <>
                         {context.state.user ? (
                             <>
-                                {this.state.questions.length > 0 ? (
+
+                                {questions && questions.length > 0 ? (
                                     <>
                                         <ul className="list-group">
-                                            {this.state.questions.map(question => {
+                                            {questions.map(question => {
                                                 return (
 
                                                     <li key={question} className="list-group-item">
