@@ -100,6 +100,7 @@ router.post('/login', async (req, res) => {
 // Add question to my diary
 
 router.post('/add-question', async (req, res) => {
+    console.log(req.body)
     const user = await User.findOne({ _id: req.body.id })
     try {
         if (user) {
@@ -128,4 +129,33 @@ router.get('/diary/:user', async (req, res) => {
 })
 
 
+router.get('/profile', auth, async (req, res) => {
+    try {
+        const user = await User.findById(req.user._id);
+        if (user) {
+            res.status(200).json({ user });
+        }
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+
+router.put('/remove-question', async (req, res) => {
+    try {
+        const { id, question } = req.body;
+        const user = await User.findOne({ _id: id })
+
+        if (user) {
+            var questions = user.questions;
+            var num = questions.indexOf(question)
+            questions.splice(num, 1);
+            user.save();
+            res.status(200).json({ user })
+        }
+
+    } catch (err) {
+        console.log(err)
+    }
+})
 module.exports = router;

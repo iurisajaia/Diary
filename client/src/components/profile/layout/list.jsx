@@ -52,11 +52,11 @@ function SwitchListSecondary() {
                                 <>
                                     {context.state.questions.map(question => {
                                         return (
-                                            <ListItem button key={question}>
+                                            <ListItem button key={question} >
 
                                                 <ListItemText primary={question} />
                                                 <ListItemSecondaryAction>
-                                                    <DeleteIcon className="remove-icon" onClick={context.removeQuestion} />
+                                                    <DeleteIcon className="remove-icon" onClick={context.removeQuestion} data-question={question} />
                                                 </ListItemSecondaryAction>
                                             </ListItem>
 

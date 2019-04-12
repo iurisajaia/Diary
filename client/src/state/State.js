@@ -59,9 +59,33 @@ class MyProvider extends Component {
 
   removeQuestion = e => {
     e.preventDefault();
-    var ul = e.target.parentElement.parentElement.parentElement.parentElement;
-    var li = e.target.parentElement.parentElement.parentElement;
-    li.remove();
+    var li =  e.target.parentElement.parentElement.parentElement;
+    var question = e.target.parentElement.dataset.question;
+    
+
+    var data = {
+      id: this.state.user._id,
+      question: question
+    };
+
+
+    fetch('/remove-question', {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(res => {
+        if(res.user){
+          li.remove();
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
 
   handleRegistration = e => {
