@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../../state/State';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import axios from 'axios';
 
 class PublicDiary extends Component {
@@ -34,8 +31,7 @@ class PublicDiary extends Component {
 
     }
     render() {
-        // var user = this.context.state.user;
-        console.log(this.state, 'diary')
+
         return (
             <MyContext.Consumer>
                 {context => (

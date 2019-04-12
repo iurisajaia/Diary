@@ -9,27 +9,17 @@ class MyProvider extends Component {
     questions: []
   };
 
+
   componentDidMount() {
     const token = localStorage.getItem("user");
     if (token) {
-      axios
-        .get("/profile/:id", {
-          headers: {
-            "x-auth-token": token
-          }
-        })
-        .then(res => {
-          var user = res.data.user
-          this.setState({ user, questions: user.questions })
-          console.log(this.state)
-        })
-        .catch(err => {
-          console.log(err);
-        });
-
-
+      var decoded = jwt_decode(token);
+      console.log(decoded)
+      this.setState({ user: decoded, questions: decoded.questions })
+      console.log(this.state)
     }
   }
+
 
   addQuestionToDiary = (e) => {
     e.preventDefault()
@@ -50,8 +40,10 @@ class MyProvider extends Component {
     })
       .then(res => res.json())
       .then(res => {
-        if (res.user) {
-          this.setState({ user: res.user, questions: res.user.questions })
+        if (res.token) {
+          var decoded = jwt_decode(res.token);
+          this.setState({ user: decoded, questions: decoded.questions })
+          localStorage.setItem('user', res.token)
         }
       })
       .catch(error => {
@@ -81,8 +73,10 @@ class MyProvider extends Component {
     })
       .then(res => res.json())
       .then(res => {
-        if (res.user) {
-          li.remove();
+        if (res.token) {
+          var decoded = jwt_decode(res.token);
+          this.setState({ user: decoded, questions: decoded.questions })
+          localStorage.setItem('user', res.token)
         }
       })
       .catch(error => {
@@ -164,7 +158,8 @@ class MyProvider extends Component {
           addQuestionToDiary: this.addQuestionToDiary,
           removeQuestion: this.removeQuestion,
           handleRegistration: this.handleRegistration,
-          hadleLogin: this.hadleLogin
+          hadleLogin: this.hadleLogin,
+          redirectToLogin: this.redirectToLogin
         }}
       >
         {this.props.children}
