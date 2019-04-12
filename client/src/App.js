@@ -6,7 +6,8 @@ import MyProvider from './state/State';
 import { MyContext } from './state/State';
 import Registration from './components/auth/registration';
 import Login from './components/auth/login';
-import Layout from './components/profile/layout/layout'
+import Layout from './components/profile/layout/layout';
+import PublicDiary from './components/profile/public/diary';
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 
@@ -24,7 +25,8 @@ class App extends Component {
 
 
             <Wellcome path="/" />
-            <Layout path="/layout" />
+            <Layout path="/profile/:id" />
+            <PublicDiary path='/diary/:id' />
             <Registration path="/registration" />
             <Login path="/login" />
           </Router>

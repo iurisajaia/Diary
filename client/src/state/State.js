@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import axios from 'axios'
+import axios from 'axios';
+import jwt_decode from "jwt-decode";
 export const MyContext = React.createContext();
 
 
@@ -29,6 +30,7 @@ class MyProvider extends Component {
 
     }
   }
+
   addQuestionToDiary = (e) => {
     e.preventDefault()
 
@@ -59,9 +61,9 @@ class MyProvider extends Component {
 
   removeQuestion = e => {
     e.preventDefault();
-    var li =  e.target.parentElement.parentElement.parentElement;
+    var li = e.target.parentElement.parentElement.parentElement;
     var question = e.target.parentElement.dataset.question;
-    
+
 
     var data = {
       id: this.state.user._id,
@@ -79,7 +81,7 @@ class MyProvider extends Component {
     })
       .then(res => res.json())
       .then(res => {
-        if(res.user){
+        if (res.user) {
           li.remove();
         }
       })
@@ -141,6 +143,9 @@ class MyProvider extends Component {
       .then(res => {
         if (res.token) {
           localStorage.setItem("user", res.token);
+          var decoded = jwt_decode(res.token);
+          this.setState({ user: decoded })
+          window.location = `/profile/${decoded._id}`;
         }
       })
       .catch(error => {
