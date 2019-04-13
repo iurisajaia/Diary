@@ -17,7 +17,7 @@ import Avatar from '@material-ui/core/Avatar';
 
 
 import QuestionsList from './list'
-import Modal from './modal'
+import MyDiary from './mydiary.js'
 import AsideSection from './drawer'
 import Friends from './friends';
 
@@ -41,7 +41,7 @@ class Layout extends Component {
             .then(res => res.json())
             .then(res => {
                 if (res.diary) {
-                    console.log(res.diary)
+                    this.setState({ diary: res.diary })
                 }
             })
             .catch(error => {
@@ -120,11 +120,11 @@ class Layout extends Component {
                                                 <QuestionsList />
                                             </div>
                                             <div id="tab-2" className="tab-content">
-                                                <Friends />
+                                                <Friends diary={this.state.diary} />
                                             </div>
                                             <div id="tab-3" className="tab-content">
-                                                ჩემი დღიური
-                                                </div>
+                                                <MyDiary />
+                                            </div>
 
 
 

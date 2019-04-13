@@ -161,12 +161,9 @@ router.get('/diary/:id', async (req, res) => {
 
 // იუზერის პროფილი
 router.get('/profile/:id', async (req, res) => {
-    // console.log(req.params.id)
     try {
-        // const user = await User.findById(req.user._id);
-        const diary = await Diary.findOne({ to: req.params.id }).populate('from')
+        const diary = await Diary.find({ to: req.params.id }).populate('from')
         if (diary) {
-            console.log(diary)
             res.status(200).json({ diary });
         } else {
             res.status(400).json({ msg: 'თქვენი დღიური ცარიელია' })

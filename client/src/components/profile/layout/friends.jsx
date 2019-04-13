@@ -88,45 +88,84 @@ const messages = [
 // const { classes } = this.props;
 class BottomAppBar extends Component {
     state = {
-        user: messages[0]
+
     }
 
     // user = messages[0];
-    singleFriend = e => {
-        // var singleuser = messages.filter(msg => {
-        //     return msg.id === e;
-        // });
-        var user = messages[e - 1];
+    singleFriend = user => {
+
         this.setState({ user })
 
     }
 
 
     render() {
+        const friends = this.props.diary;
+        const user = this.state.user;
+        console.log(user)
         return (
             <React.Fragment>
                 {/* <CssBaseline /> */}
                 <div className="row">
-                    <div className="col-lg-4 col-md-4 col-sm-12">
+                    <div className="col-lg-3 col-md-3 col-sm-12">
 
                         <Paper square >
 
                             <List className="questions-list" >
-                                {messages.map(({ id, primary, secondary, person }) => (
+                                {friends ? (
+                                    <>
+                                        {friends.map(friend => {
+                                            return (
+
+                                                <ListItem key={friend._id} onClick={() => this.singleFriend(friend)}>
+                                                    <ListItemText primary={friend.from.firstname + ' ' + friend.from.lastname} />
+                                                </ListItem>
+                                            )
+                                        })}
+                                    </>
+                                ) : null}
+
+                                {/* {messages.map(({ id, primary, secondary, person }) => (
 
                                     <ListItem onClick={() => this.singleFriend(id)}>
                                         <Avatar alt="Profile Picture" src={person} />
                                         <ListItemText primary={primary} />
                                     </ListItem>
 
-                                ))}
+                                ))} */}
                             </List>
                         </Paper>
                     </div>
-                    <div className="col-lg-8 col-md-8 col-sm-12">
-                        {this.state.user ? (
-                            // <SingleUser user={this.state.user}/>
-                            <h2>{this.state.user.primary}</h2>
+                    <div className="col-lg-9 col-md-9 col-sm-12">
+                        {user ? (
+                            <>
+                                <h2>{user.from.firstname} {user.from.lastname}</h2>
+                                <div className="diary-single">
+                                    <div className="friends-questions">
+                                      
+                                        {user.question.map(q => {
+                                            return (
+                                                <>
+                                                    <li className="questions-li" key={q}>{q}</li>
+                                                </>
+                                            )
+                                        })}
+
+                                        <div className="friends-answers">
+                                        
+                                            {user.answer.map(a => {
+                                                return (
+                                                    <>
+                                                        <li key={a}>{a}</li>
+                                                    </>
+                                                )
+                                            })}
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </>
                         ) : <p>დღიური ცარიელია</p>}
                     </div>
                 </div>
