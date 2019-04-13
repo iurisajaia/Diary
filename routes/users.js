@@ -106,7 +106,23 @@ router.post('/add-question', async (req, res) => {
         if (user) {
             user.questions.push(req.body.question)
             await user.save()
-            res.status(200).json({ user })
+
+            const token = jwt.sign(
+                {
+                    _id: user.id,
+                    firstname: user.firstname,
+                    lastname: user.lastname,
+                    image: user.image,
+                    email: user.email,
+                    questions: user.questions,
+                    isAdmin: user.isAdmin,
+                    isActive: user.isActive
+
+                },
+                key,
+                { expiresIn: "1h" }
+            );
+            res.status(200).json({ token })
         }
     } catch (err) {
         console.log(err)
@@ -114,10 +130,10 @@ router.post('/add-question', async (req, res) => {
 })
 
 // Get Users Diary
-router.get('/diary/:user', async (req, res) => {
-    console.log(req.params)
+router.get('/diary/:id', async (req, res) => {
+    console.log(req.params.id)
     try {
-        const user = await User.findOne({ _id: req.params.user })
+        const user = await User.findOne({ _id: req.params.id })
         if (user) {
             res.status(200).json({ questions: user.questions })
         } else {
@@ -129,7 +145,7 @@ router.get('/diary/:user', async (req, res) => {
 })
 
 
-router.get('/profile', auth, async (req, res) => {
+router.get('/profile/:id', auth, async (req, res) => {
     try {
         const user = await User.findById(req.user._id);
         if (user) {
@@ -151,11 +167,28 @@ router.put('/remove-question', async (req, res) => {
             var num = questions.indexOf(question)
             questions.splice(num, 1);
             user.save();
-            res.status(200).json({ user })
+            const token = jwt.sign(
+                {
+                    _id: user.id,
+                    firstname: user.firstname,
+                    lastname: user.lastname,
+                    image: user.image,
+                    email: user.email,
+                    questions: user.questions,
+                    isAdmin: user.isAdmin,
+                    isActive: user.isActive
+
+                },
+                key,
+                { expiresIn: "1h" }
+            );
+            res.status(200).json({ token })
         }
 
     } catch (err) {
         console.log(err)
     }
 })
+
+
 module.exports = router;

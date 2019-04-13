@@ -45,19 +45,22 @@ class PublicDiary extends Component {
 
                                 {questions && questions.length > 0 ? (
                                     <>
-                                        <ul className="list-group">
+                                        <form className="list-group" onSubmit={context.handlePublicDiary}>
                                             {questions.map(question => {
                                                 return (
+                                                    <div key={question} className="list-group-item mb-1">
+                                                        <li value={question}>
 
-                                                    <li key={question} className="list-group-item">
+                                                            {question}
 
-                                                        {question}
-
-                                                    </li>
+                                                        </li>
+                                                        <input type="text" className="publicInput" data-pubquestion={question} />
+                                                    </div>
 
                                                 )
                                             })}
-                                        </ul>
+                                            <button className="btn btn-success">შევსება</button>
+                                        </form>
                                     </>
                                 ) : <p>დღიური ცარიელია</p>}
 

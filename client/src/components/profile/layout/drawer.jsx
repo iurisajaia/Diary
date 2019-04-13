@@ -3,6 +3,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 // import event from "event-module";
 import { MyContext } from '../../../state/State';
+import { lookupService } from 'dns';
 
 
 function AsideSection(props) {
@@ -11,12 +12,12 @@ function AsideSection(props) {
         <MyContext.Consumer>
             {context => (
                 <>
-                    <List className="tabs">
+                    <ul className="tabs">
 
-                        <ListItem button className="custom-navigation tab-link current" data-tab="tab-1"> <i className="fas fa-angle-double-right"></i>დღიური</ListItem>
-                        <ListItem button className="custom-navigation tab-link" data-tab="tab-2" > <i className="fas fa-angle-double-right"></i>მეგობრები</ListItem>
-
-                    </List>
+                        <li button className="custom-navigation tab-link current" data-tab="tab-1"> კითხვები</li>
+                        <li button className="custom-navigation tab-link" data-tab="tab-2" > მეგობრები</li>
+                        <li button className="custom-navigation tab-link" data-tab="tab-3" > დღიური</li>
+                    </ul>
                 </>
             )}
         </MyContext.Consumer>

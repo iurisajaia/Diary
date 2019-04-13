@@ -147,7 +147,14 @@ class MyProvider extends Component {
       });
   }
 
-
+  handlePublicDiary = e => {
+    e.preventDefault();
+    var myForm = e.target;
+    //Extract Each Element Value
+    for (var i = 0; i < myForm.length; i++) {
+      console.log(myForm.elements[i].value);
+    }
+  }
 
 
   render() {
@@ -159,7 +166,7 @@ class MyProvider extends Component {
           removeQuestion: this.removeQuestion,
           handleRegistration: this.handleRegistration,
           hadleLogin: this.hadleLogin,
-          redirectToLogin: this.redirectToLogin
+          handlePublicDiary: this.handlePublicDiary
         }}
       >
         {this.props.children}
