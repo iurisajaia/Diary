@@ -31,6 +31,11 @@ class Layout extends Component {
     static contextType = MyContext;
     state = {}
 
+    handleLogout = () => {
+        localStorage.clear()
+        window.location = '/login'
+    }
+
     componentDidMount() {
         fetch(`/profile/${this.props.id}`, {
             headers: {
@@ -83,7 +88,7 @@ class Layout extends Component {
                                                         </Typography>
                                                     </div>
                                                     <AsideSection />
-                                                    <button>logout</button>
+                                                    <button onClick={this.handleLogout} className="btn btn-warning">გასვლა</button>
                                                 </Toolbar>
                                             </div>
                                         </AppBar>
