@@ -114,7 +114,7 @@ class BottomAppBar extends Component {
                             <List className="questions-list" >
                                 {messages.map(({ id, primary, secondary, person }) => (
 
-                                    <ListItem button onClick={() => this.singleFriend(id)}>
+                                    <ListItem onClick={() => this.singleFriend(id)}>
                                         <Avatar alt="Profile Picture" src={person} />
                                         <ListItemText primary={primary} />
                                     </ListItem>
@@ -137,41 +137,3 @@ class BottomAppBar extends Component {
 }
 
 export default BottomAppBar;
-
-// function BottomAppBar(props) {
-    // const { classes } = props;
-
-    // return (
-    //     <React.Fragment>
-    //         {/* <CssBaseline /> */}
-    //         <div className="row">
-    //             <div className="col-lg-4 col-md-4 col-sm-12">
-
-    //                 <Paper square className={classes.paper}>
-
-    //                     <List className={classes.list} className="questions-list" >
-    //                         {messages.map(({ id, primary, secondary, person }) => (
-
-    //                             <ListItem button onClick={() => singleFriend(id)}>
-    //                                 <Avatar alt="Profile Picture" src={person} />
-    //                                 <ListItemText primary={primary} />
-    //                             </ListItem>
-
-    //                         ))}
-    //                     </List>
-    //                 </Paper>
-    //             </div>
-    //             <div className="col-lg-8 col-md-8 col-sm-12">
-    //                 {SingleFriendContent()}
-    //             </div>
-    //         </div>
-
-    //     </React.Fragment>
-    // );
-// }
-
-// BottomAppBar.propTypes = {
-//     classes: PropTypes.object.isRequired,
-// };
-
-// export default withStyles(styles)(BottomAppBar);

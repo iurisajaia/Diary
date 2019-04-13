@@ -150,10 +150,32 @@ class MyProvider extends Component {
   handlePublicDiary = e => {
     e.preventDefault();
     var myForm = e.target;
-    //Extract Each Element Value
-    for (var i = 0; i < myForm.length; i++) {
-      console.log(myForm.elements[i].value);
+    var data = {
+      question: [],
+      answer: [],
+      from: this.state.user._id,
+      to: ''
     }
+    for (var i = 0; i < myForm.length - 1; i++) {
+      data.question.push(myForm.elements[i].dataset.pubquestion);
+      data.answer.push(myForm.elements[i].value);
+      data.to = myForm.elements[i].dataset.toid;
+    }
+    fetch('/handle-diary', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res)
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
 
 

@@ -36,6 +36,7 @@ class PublicDiary extends Component {
 
             var questions = this.state.questions;
         }
+        console.log(this.props.id)
         return (
             <MyContext.Consumer>
                 {context => (
@@ -54,7 +55,7 @@ class PublicDiary extends Component {
                                                             {question}
 
                                                         </li>
-                                                        <input type="text" className="publicInput" data-pubquestion={question} />
+                                                        <input type="text" className="publicInput" data-pubquestion={question} data-toid={this.props.id} />
                                                     </div>
 
                                                 )

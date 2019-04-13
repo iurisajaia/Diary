@@ -15,6 +15,12 @@ const key = require("../config/keys").secretOrKey;
 // Import User Schemas
 const User = require("../models/User");
 
+// Import Diary Schemas
+const Diary = require('../models/Diary');
+
+
+
+// რეგისტრაცია
 router.post('/registration', async (req, res) => {
     try {
         const { firstname, lastname, email, password } = req.body;
@@ -63,12 +69,20 @@ router.post('/registration', async (req, res) => {
     }
 })
 
+
+// ავტორიზაცია
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
         const user = await User.findOne({ email })
 
         if (user) {
+            const friends = await Diary.findOne({ to: user._id })
+            if (friends) {
+                console.log(friends)
+            } else {
+                console.log('თქვენი დღიური ცარიელია')
+            }
             const token = jwt.sign(
                 {
                     _id: user.id,
@@ -97,7 +111,7 @@ router.post('/login', async (req, res) => {
     }
 })
 
-// Add question to my diary
+// დღიურში შეკითხვის დამატება
 
 router.post('/add-question', async (req, res) => {
     console.log(req.body)
@@ -129,7 +143,7 @@ router.post('/add-question', async (req, res) => {
     }
 })
 
-// Get Users Diary
+// იუზერის დღიური (საჯარო)
 router.get('/diary/:id', async (req, res) => {
     console.log(req.params.id)
     try {
@@ -145,18 +159,25 @@ router.get('/diary/:id', async (req, res) => {
 })
 
 
-router.get('/profile/:id', auth, async (req, res) => {
+// იუზერის პროფილი
+router.get('/profile/:id', async (req, res) => {
+    // console.log(req.params.id)
     try {
-        const user = await User.findById(req.user._id);
-        if (user) {
-            res.status(200).json({ user });
+        // const user = await User.findById(req.user._id);
+        const diary = await Diary.findOne({ to: req.params.id }).populate('from')
+        if (diary) {
+            console.log(diary)
+            res.status(200).json({ diary });
+        } else {
+            res.status(400).json({ msg: 'თქვენი დღიური ცარიელია' })
         }
+
     } catch (err) {
         console.log(err)
     }
 })
 
-
+// შეკითხვის წაშლა
 router.put('/remove-question', async (req, res) => {
     try {
         const { id, question } = req.body;
@@ -190,5 +211,33 @@ router.put('/remove-question', async (req, res) => {
     }
 })
 
+
+// დღიურის შევსება
+router.post('/handle-diary', async (req, res) => {
+
+    try {
+        const { question, answer, from, to } = req.body;
+        var questions = [];
+        var answers = [];
+
+        for (let i = 0; i < question.length; i++) {
+            questions.push(question[i])
+            answers.push(answer[i])
+        }
+        const diary = new Diary({
+            question: questions,
+            answer: answers,
+            from,
+            to
+        })
+
+        diary.save();
+
+        res.status(200).json({ diary })
+
+    } catch (err) {
+        console.log(err)
+    }
+})
 
 module.exports = router;
