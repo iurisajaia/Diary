@@ -7,10 +7,11 @@ import { MyContext } from './state/State';
 import Registration from './components/auth/registration';
 import Login from './components/auth/login';
 import Layout from './components/profile/layout/layout';
-import PublicDiary from './components/profile/public/diary';
+import PublicDiary from './components/user/publicdiary';
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import UserLayout from './components/user/layout'
+
 const theme = createMuiTheme({ typography: { useNextVariants: true } });
 
 class App extends Component {

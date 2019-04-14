@@ -54,13 +54,14 @@ class MyProvider extends Component {
   removeQuestion = e => {
     e.preventDefault();
     var li = e.target.parentElement.parentElement.parentElement;
-    var question = e.target.parentElement.dataset.question;
+    var question = e.target.dataset.question;
 
 
     var data = {
       id: this.state.user._id,
       question: question
     };
+
 
 
     fetch('/remove-question', {

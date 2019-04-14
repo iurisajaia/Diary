@@ -14,7 +14,7 @@ class User extends Component {
                             <div class="mb-5 text-center">
                                 <div className="user-image-box">
                                     <div class="main-heading">
-                                        <img src={`/${context.state.user.image}`} alt="" className="user-img" />
+                                        <img src={`${context.state.user.image}`} alt="" className="user-img" />
                                     </div>
                                     <form onSubmit={context.updateUserImage} className="mt-2 imageForm">
 
@@ -53,7 +53,7 @@ class User extends Component {
                                     <a class="nav-link page-scroll" href="#about">მეგობრები</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link page-scroll" target="_blank" href="/about">ჩემი დღიური <i class="fas fa-external-link-alt"></i></a>
+                                    <a class="nav-link page-scroll" target="_blank" href={`/diary/${context.state.user._id}`}>ჩემი დღიური <i class="fas fa-external-link-alt"></i></a>
                                 </li>
                             </ul>
                             <p class="mt-4 social-icon">

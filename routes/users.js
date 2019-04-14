@@ -171,7 +171,7 @@ router.get('/diary/:id', async (req, res) => {
     try {
         const user = await User.findOne({ _id: req.params.id })
         if (user) {
-            res.status(200).json({ questions: user.questions })
+            res.status(200).json({ questions: user })
         } else {
             res.status(400).json({ msg: 'some error' })
         }
@@ -201,6 +201,7 @@ router.put('/remove-question', async (req, res) => {
     try {
         const { id, question } = req.body;
         const user = await User.findOne({ _id: id })
+
 
         if (user) {
             var questions = user.questions;
@@ -265,7 +266,7 @@ router.post("/add-user-image", upload.single("image"), async (req, res) => {
     const user = await User.findOne({ _id: req.body.user });
     try {
         if (user) {
-            user.image = req.file.filename;
+            user.image = `/${req.file.filename}`;
             user.save();
 
             const token = jwt.sign(

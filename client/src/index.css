@@ -285,6 +285,7 @@ section .inner{
     padding-bottom: 50px;
     font-style: italic;
     border:none;
+    font-weight: bold;
   }
 
   .modal-box{
@@ -384,4 +385,12 @@ section .inner{
   }
   .file-area input[type=file]:valid + .file-dummy .default {
     display: none;
+  }
+
+
+  .public-diary-container{
+      color: #000000;
+  }
+  .public-diary-container button{
+      background: green;
   }
