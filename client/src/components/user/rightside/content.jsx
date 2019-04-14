@@ -5,13 +5,18 @@ import Friends from './friends';
 
 class Content extends Component {
     state = {}
+
+
+
     render() {
+
+        const diary = this.props.diary;
         return (
             <div class="col-sm-9 offset-sm-3 px-0">
 
                 <Greeting />
                 <Questions />
-                <Friends />
+                <Friends diary={diary} />
 
             </div>
         );

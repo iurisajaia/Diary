@@ -220,12 +220,15 @@ section .inner{
   .home-list {
     list-style: none;
     background: #ecf5ff;
-    padding: 30px;
+    padding: 30px 45px 30px 30px;
     border-radius: 4px;
+
   }
   .home-list li {
     padding: 10px 0 10px 0;
     color: #000000;
+    position: relative;
+    
   }
   .home-list li:nth-child(odd) {
     text-align: center;
@@ -240,3 +243,47 @@ section .inner{
     border-bottom: 10px solid #86bfff;
   }
   
+  .home-list li:nth-child(odd) .remove-icon{
+     right: -35px;
+  }
+  .remove-icon{
+     /* float: right; */
+     font-size:20px;
+     position: absolute;
+     right: -45px;
+     cursor: pointer;
+  }
+
+
+
+
+  .answers-list {
+    list-style: none;
+    background: #ecf5ff;
+    padding: 30px 45px 30px 30px;
+    border-radius: 4px;
+
+  }
+  .answers-list li {
+    padding: 10px 0 10px 0;
+    color: #000000;
+    text-align: center;
+    border-bottom: 1px solid #86bfff;
+    padding-bottom: 50px;
+    
+}
+.friends-questions{
+    position: relative;
+ }
+
+ .friends-answers{
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    left: 0;
+  }
+  .friends-answers li {
+    padding-bottom: 50px;
+    font-style: italic;
+    border:none;
+  }

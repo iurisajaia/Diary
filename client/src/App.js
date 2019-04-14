@@ -25,11 +25,11 @@ class App extends Component {
 
 
             <Wellcome path="/" />
-            <Layout path="/profile/:id" />
+            <Layout path="/oldprofile/:id" />
             <PublicDiary path='/diary/:id' />
             <Registration path="/registration" />
             <Login path="/login" />
-            <UserLayout path="/user" />
+            <UserLayout path="/profile/:id" />
           </Router>
         </MyProvider>
       </ThemeProvider>

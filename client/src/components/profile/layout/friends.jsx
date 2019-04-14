@@ -125,14 +125,7 @@ class BottomAppBar extends Component {
                                     </>
                                 ) : null}
 
-                                {/* {messages.map(({ id, primary, secondary, person }) => (
-
-                                    <ListItem onClick={() => this.singleFriend(id)}>
-                                        <Avatar alt="Profile Picture" src={person} />
-                                        <ListItemText primary={primary} />
-                                    </ListItem>
-
-                                ))} */}
+                               
                             </List>
                         </Paper>
                     </div>
