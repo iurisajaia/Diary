@@ -6,6 +6,10 @@ const app = express();
 
 const users = require("./routes/users");
 
+
+// Public Folder
+app.use(express.static("./uploads"));
+
 // Use Cors
 app.use(cors());
 // Connect to MongoDB

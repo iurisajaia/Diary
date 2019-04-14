@@ -178,6 +178,32 @@ class MyProvider extends Component {
       });
   }
 
+  // Update Users Image
+  updateUserImage = e => {
+    e.preventDefault();
+    const data = new FormData();
+
+    data.append("user", e.target.user.value);
+    data.append("image", e.target.image.files[0]);
+
+    axios({
+      method: "POST",
+      url: "/add-user-image",
+      data: data,
+      config: { headers: { "Content-Type": "multpart/form-data" } }
+    })
+      .then(res => {
+        console.log(res)
+        if (res.data.token) {
+          localStorage.setItem("user", res.data.token);
+          var decoded = jwt_decode(res.data.token);
+          this.setState({ user: decoded })
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
 
   render() {
     return (
@@ -188,7 +214,8 @@ class MyProvider extends Component {
           removeQuestion: this.removeQuestion,
           handleRegistration: this.handleRegistration,
           hadleLogin: this.hadleLogin,
-          handlePublicDiary: this.handlePublicDiary
+          handlePublicDiary: this.handlePublicDiary,
+          updateUserImage: this.updateUserImage
         }}
       >
         {this.props.children}

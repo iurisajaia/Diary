@@ -12,7 +12,8 @@ const UserSchema = new Schema({
         required: true
     },
     image: {
-        type: String
+        type: String,
+        default: 'http://subhagamirealestate.com/wp-content/u1.png'
     },
 
     email: {

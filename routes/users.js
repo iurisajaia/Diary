@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose')
 const jwt = require("jsonwebtoken");
 const jwt_decode = require("jwt-decode");
-
+const multer = require("multer");
 
 
 // Protect Routes
@@ -18,6 +18,34 @@ const User = require("../models/User");
 // Import Diary Schemas
 const Diary = require('../models/Diary');
 
+
+
+// Multer
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "uploads/");
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
+const fileFilter = (req, file, cb) => {
+    if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }
+};
+
+const upload = multer({
+    storage: storage,
+    limits: {
+        fileSize: 1024 * 1024 * 5
+    },
+    fileFilter: fileFilter
+});
 
 
 // რეგისტრაცია
@@ -230,5 +258,35 @@ router.post('/handle-diary', async (req, res) => {
         console.log(err)
     }
 })
+
+
+// ფოტოს განახლება
+router.post("/add-user-image", upload.single("image"), async (req, res) => {
+    const user = await User.findOne({ _id: req.body.user });
+    try {
+        if (user) {
+            user.image = req.file.filename;
+            user.save();
+
+            const token = jwt.sign(
+                {
+                    _id: user.id,
+                    firstname: user.firstname,
+                    lastname: user.lastname,
+                    image: user.image,
+                    email: user.email,
+                    questions: user.questions,
+                    isAdmin: user.isAdmin,
+                    isActive: user.isActive
+                },
+                key,
+                { expiresIn: "1h" }
+            );
+            res.status(200).json({ token });
+        }
+    } catch (err) {
+        console.log(err);
+    }
+});
 
 module.exports = router;

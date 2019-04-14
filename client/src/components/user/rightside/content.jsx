@@ -12,7 +12,7 @@ class Content extends Component {
 
         const diary = this.props.diary;
         return (
-            <div class="col-sm-9 offset-sm-3 px-0">
+            <div class="col-sm-9 offset-sm-3 px-0 relative">
 
                 <Greeting />
                 <Questions />

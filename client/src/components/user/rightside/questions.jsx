@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../../state/State';
-
+import Modal from './modal';
 
 class Questions extends Component {
     static contextType = MyContext;
@@ -11,7 +11,7 @@ class Questions extends Component {
             <MyContext.Consumer>
                 {context => (
                     <>
-                        <section class="bg-style1" id="work">
+                        <section class="bg-style1 relative" id="work">
                             <div class="container">
                                 <div class="inner">
                                     <div class="row">
@@ -48,6 +48,7 @@ class Questions extends Component {
                                     </div>
                                 </div>
                             </div>
+                            <Modal />
                         </section>
                     </>
                 )}
