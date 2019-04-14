@@ -10,7 +10,7 @@ import Layout from './components/profile/layout/layout';
 import PublicDiary from './components/profile/public/diary';
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
-
+import UserLayout from './components/user/layout'
 const theme = createMuiTheme({ typography: { useNextVariants: true } });
 
 class App extends Component {
@@ -29,6 +29,7 @@ class App extends Component {
             <PublicDiary path='/diary/:id' />
             <Registration path="/registration" />
             <Login path="/login" />
+            <UserLayout path="/user" />
           </Router>
         </MyProvider>
       </ThemeProvider>

@@ -77,12 +77,6 @@ router.post('/login', async (req, res) => {
         const user = await User.findOne({ email })
 
         if (user) {
-            const friends = await Diary.findOne({ to: user._id })
-            if (friends) {
-                console.log(friends)
-            } else {
-                console.log('თქვენი დღიური ცარიელია')
-            }
             const token = jwt.sign(
                 {
                     _id: user.id,
@@ -145,7 +139,7 @@ router.post('/add-question', async (req, res) => {
 
 // იუზერის დღიური (საჯარო)
 router.get('/diary/:id', async (req, res) => {
-    console.log(req.params.id)
+
     try {
         const user = await User.findOne({ _id: req.params.id })
         if (user) {
