@@ -1,43 +1,31 @@
 import React, { Component } from 'react';
-// import { Link } from '@reach/router'
-import FacebookLogin from "react-facebook-login";
 import { MyContext } from '../../state/State';
-class Wellcome extends Component {
-    static contextType = MyContext;
+import LeftSide from './leftside';
+import RightSide from './rightside';
 
-
-
+class FrontPage extends Component {
+    state = {}
     render() {
-        // console.log(this.context)
-        var fbContent = (
-            <FacebookLogin
-                appId="652531571871133"
-                cookie={true}
-                xfbml={true}
-                version='2.8'
-                autoLoad={false}
-                fields="name,email,friends,picture"
-                scope="public_profile,email,user_friends"
-                disableMobileRedirect={true}
-            />
-        );
         return (
-            <>
-                <div className="diary-wellcome-container">
-                    <div className="wellcome-box"></div>
-                    <div className="wellcome-box"></div>
-                    <div className="wellcome-box_double"></div>
-                    <div className="wellcome-box"></div>
-                    <div className="wellcome-box"></div>
-                    <div className="wellcome-box"></div>
-                    <div className="wellcome-box"></div>
-                    <div className="login-box">
-                        {fbContent}
-                    </div>
-                </div>
-            </>
+            <MyContext.Consumer>
+                {context => (
+                    <>
+
+
+                        <section class="bg-alt hero p-0">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <LeftSide />
+                                    <RightSide />
+                                </div>
+                            </div>
+                        </section>
+
+                    </>
+                )}
+            </MyContext.Consumer>
         );
     }
 }
 
-export default Wellcome;
+export default FrontPage;

@@ -302,7 +302,9 @@ section .inner{
 .MuiFormControl-marginNormal-115 {
     width: 100%!important;
 }
-
+.friends-item{
+    cursor: pointer;
+}
 
 
 

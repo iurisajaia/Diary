@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Router } from '@reach/router';
-import Wellcome from './components/wellcome/wellcome'
 import MyProvider from './state/State';
 import { MyContext } from './state/State';
+import FrontPage from './components/wellcome/wellcome'
 import Registration from './components/auth/registration';
 import Login from './components/auth/login';
 import Layout from './components/profile/layout/layout';
@@ -26,8 +26,8 @@ class App extends Component {
           <Router>
 
 
-            <Wellcome path="/" />
             <Layout path="/oldprofile/:id" />
+            <FrontPage path="/" />
             <PublicDiary path='/diary/:id' />
             <Registration path="/registration" />
             <Login path="/login" />

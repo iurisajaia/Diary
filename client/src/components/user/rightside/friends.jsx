@@ -34,7 +34,7 @@ class Friends extends Component {
                                                 {friends.map(friend => {
                                                     return (
 
-                                                        <div class="col-sm-3 mt-2 wow fadeIn" key={friend._id} onClick={() => this.singleFriend(friend)}>
+                                                        <div class="col-sm-3 mt-2 wow fadeIn friends-item" title={friend.from.firstname} key={friend._id} onClick={() => this.singleFriend(friend)}>
                                                             <img src={`${friend.from.image}`} alt={friend.from.firstname} class="img-team img-fluid rounded-circle" />
                                                             <h5 class="card-title pt-4">{friend.from.firstname + ' ' + friend.from.lastname}</h5>
                                                         </div>
