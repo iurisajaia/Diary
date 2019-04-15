@@ -24,14 +24,12 @@ class Friends extends Component {
                                     <div class="row">
                                         <div class="col-xs-12">
                                             <h2 class="text-white text-uppercase">მეგობრები 👩‍🦱👨‍🦱</h2>
-                                            <p class="pt-4">
-                                                ლორემ იპსუმ გცემე მომხდარიყო დაეკოცნა დაჰკარ შვილიშვილები შეცვლით ენაზედაც კეთილდღეობისა
-                                            </p>
+
                                         </div>
                                     </div>
                                     <div class="row d-md-flex mt-4 text-center">
 
-                                        {friends ? (
+                                        {friends && friends.length > 0 ? (
                                             <>
                                                 {friends.map(friend => {
                                                     return (
@@ -45,7 +43,7 @@ class Friends extends Component {
                                                     )
                                                 })}
                                             </>
-                                        ) : <p>თქვენი დღიური ცარიელია</p>}
+                                        ) : <p>მეგობრების სია ცარიელია</p>}
 
 
 

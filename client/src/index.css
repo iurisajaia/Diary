@@ -390,7 +390,27 @@ section .inner{
 
   .public-diary-container{
       color: #000000;
+      width: 80%;
+      margin:20px auto;
   }
   .public-diary-container button{
-      background: green;
+      background: #28a745;
+      width: 200px;
+      text-align: center;
+      margin: 15px auto;
+  }
+  .public-diary-container li {
+      list-style-type: none;
+      margin-bottom: 10px;
+      font-size:20px;
+  }
+  .public-diary-container li span {
+      margin-right: 30px;
+  }
+
+  .public-diary-container input {
+      border:none;
+      border-bottom: 1px solid #4a0072;
+      width:60%;
+      padding: 10px;
   }
