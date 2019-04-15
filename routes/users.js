@@ -105,8 +105,13 @@ router.post('/registration', async (req, res) => {
 // ავტორიზაცია
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
+
     try {
         const user = await User.findOne({ email })
+
+        if (!email || !password) {
+            res.status(400).json({ msg: 'შეავსეთ ყველა ველი' })
+        }
 
         if (user) {
 
