@@ -4,8 +4,13 @@ import { MyContext } from '../../../state/State';
 class User extends Component {
     static contextType = MyContext;
     state = {}
-    render() {
 
+    handleLogout = () => {
+        localStorage.clear()
+        window.location = '/login'
+    }
+
+    render() {
         return (
             <MyContext.Consumer>
                 {context => (
@@ -56,6 +61,8 @@ class User extends Component {
                                     <a class="nav-link page-scroll" target="_blank" href={`/diary/${context.state.user._id}`}>ჩემი დღიური <i class="fas fa-external-link-alt"></i></a>
                                 </li>
                             </ul>
+
+                            <button onClick={this.handleLogout} className="btn btn-warning">გასვლა</button>
                             <p class="mt-4 social-icon">
                                 <a href="https://twitter.com/" target="_blank"><em class="ion-social-twitter text-twitter-alt icon-sm mr-3"></em></a>
                                 <a href="https://github.com/" target="_blank"><em class="ion-social-github text-github-alt icon-sm mr-3"></em></a>

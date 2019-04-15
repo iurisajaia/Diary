@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../state/State';
 import axios from 'axios';
-
+import Unauthorized from './unauthorized/unauthorized';
 class PublicDiary extends Component {
     state = {}
     componentDidMount() {
@@ -30,6 +30,7 @@ class PublicDiary extends Component {
             });
 
     }
+
     render() {
         if (this.state.questions) {
 
@@ -108,7 +109,7 @@ class PublicDiary extends Component {
 
 
                             </>
-                        ) : <p>დღიურის სანახავად აუცილებელია ავტორიზაცია</p>}
+                        ) : <Unauthorized />}
                     </>
                 )}
             </MyContext.Consumer>

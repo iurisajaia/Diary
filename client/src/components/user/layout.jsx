@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import User from './leftside/user';
 import Content from './rightside/content';
 import { MyContext } from '../../state/State';
+import Unauthorized from './unauthorized/unauthorized';
+import Unvisible from './unauthorized/unvisible'
 
 class UserLayout extends Component {
     static contextType = MyContext;
@@ -27,6 +29,8 @@ class UserLayout extends Component {
             });
     }
 
+
+
     render() {
         return (
             <MyContext.Consumer>
@@ -43,9 +47,9 @@ class UserLayout extends Component {
                                             </div>
                                         </div>
                                     </section>
-                                ) : <p>შიგთავსი მიუწვდომელია</p>}
+                                ) : <Unvisible />}
                             </>
-                        ) : <p>სამწუხაროდ თქვენ არ ხართ ავტორიზებული</p>}
+                        ) : <Unauthorized />}
                     </>
                 )}
             </MyContext.Consumer>

@@ -414,3 +414,23 @@ section .inner{
       width:60%;
       padding: 10px;
   }
+
+
+
+
+  .unauthorized-box{
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      font-size:35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #7b1fa2 !important;
+  }
+  .unauthorized-box div{
+      text-align: center;
+  }
+  .reg-href{
+      font-size:25px;
+  }
