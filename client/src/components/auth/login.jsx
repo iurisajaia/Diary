@@ -81,6 +81,19 @@ function OutlinedInputAdornments() {
 
 
                                 </div>
+
+                                {context.state.errors ? (
+                                    <div className="alerts mt-2">
+                                        <div className="custom-alert_danger p-3 text-center">{context.state.errors}</div>
+                                    </div>
+                                ) : null}
+
+                                {context.state.success ? (
+                                    <div className="alerts mt-2">
+                                        <div className="custom-alert_success p-3 text-center">{context.state.success}</div>
+                                    </div>
+                                ) : null}
+                                
                                 <div className="text-center ">
                                     <p className="lead">
                                         <a href="/">მთავარი</a> / <a href="/registration">რეგისტრაცია</a>

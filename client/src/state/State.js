@@ -95,7 +95,7 @@ class MyProvider extends Component {
       password: e.target.password.value
     }
 
-    
+
 
     fetch('/registration', {
       method: "POST",
@@ -142,6 +142,9 @@ class MyProvider extends Component {
           var decoded = jwt_decode(res.token);
           this.setState({ user: decoded })
           window.location = `/profile/${decoded._id}`;
+        }
+        if (res.msg) {
+          this.setState({ errors: res.msg })
         }
       })
       .catch(error => {

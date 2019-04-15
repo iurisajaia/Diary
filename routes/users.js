@@ -4,7 +4,8 @@ const mongoose = require('mongoose')
 const jwt = require("jsonwebtoken");
 const jwt_decode = require("jwt-decode");
 const multer = require("multer");
-
+const passport = require("passport");
+const bcrypt = require("bcryptjs");
 
 // Protect Routes
 const auth = require("../middleware/login");
@@ -90,6 +91,8 @@ router.post('/registration', async (req, res) => {
                 email,
                 password
             })
+            const salt = await bcrypt.genSalt(10);
+            newUser.password = await bcrypt.hash(newUser.password, salt);
             await newUser.save();
             res.status(200).json({ newUser })
         }
@@ -106,28 +109,37 @@ router.post('/login', async (req, res) => {
         const user = await User.findOne({ email })
 
         if (user) {
-            const token = jwt.sign(
-                {
-                    _id: user.id,
-                    firstname: user.firstname,
-                    lastname: user.lastname,
-                    image: user.image,
-                    email: user.email,
-                    questions: user.questions,
-                    isAdmin: user.isAdmin,
-                    isActive: user.isActive
 
-                },
-                key,
-                { expiresIn: "1h" }
+            const validPassword = await bcrypt.compare(
+                password,
+                user.password
             );
-            return res
-                .header("x-auth-token", token)
-                .status(200)
-                .json({ token });
+            if (!validPassword) {
+                return res.status(400).json({ msg: "პაროლი არასწორია" });
+            } else {
 
+                const token = jwt.sign(
+                    {
+                        _id: user.id,
+                        firstname: user.firstname,
+                        lastname: user.lastname,
+                        image: user.image,
+                        email: user.email,
+                        questions: user.questions,
+                        isAdmin: user.isAdmin,
+                        isActive: user.isActive
+
+                    },
+                    key,
+                    { expiresIn: "1h" }
+                );
+                return res
+                    .header("x-auth-token", token)
+                    .status(200)
+                    .json({ token });
+            }
         } else {
-            res.status(400).json({ msg: 'user not found' })
+            res.status(400).json({ msg: 'მომხმარებელი არ მოიძებნა' })
         }
     } catch (err) {
         console.log(err)
