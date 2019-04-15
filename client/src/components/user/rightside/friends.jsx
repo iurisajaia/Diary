@@ -43,7 +43,7 @@ class Friends extends Component {
                                                     )
                                                 })}
                                             </>
-                                        ) : <p>მეგობრების სია ცარიელია</p>}
+                                        ) : <p className="custom-alert_danger">მეგობრების სია ცარიელია</p>}
 
 
 

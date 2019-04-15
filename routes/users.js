@@ -51,6 +51,7 @@ const upload = multer({
 // რეგისტრაცია
 router.post('/registration', async (req, res) => {
     try {
+
         const { firstname, lastname, email, password } = req.body;
         const user = await User.findOne({ email });
         if (

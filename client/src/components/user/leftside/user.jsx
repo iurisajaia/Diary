@@ -7,7 +7,7 @@ class User extends Component {
 
     handleLogout = () => {
         localStorage.clear()
-        window.location = '/login'
+        window.location = '/'
     }
 
     render() {

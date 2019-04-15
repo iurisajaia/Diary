@@ -39,6 +39,9 @@ class LeftSide extends Component {
                                 <li class="nav-item">
                                     <a class="nav-link page-scroll" href="#rules">წესები</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link page-scroll" href="#contact">რამე გვერდი</a>
+                                </li>
 
                             </ul>
 

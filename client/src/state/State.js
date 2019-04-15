@@ -95,6 +95,7 @@ class MyProvider extends Component {
       password: e.target.password.value
     }
 
+    
 
     fetch('/registration', {
       method: "POST",

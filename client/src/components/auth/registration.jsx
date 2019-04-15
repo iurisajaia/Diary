@@ -46,70 +46,78 @@ function OutlinedInputAdornments() {
         <MyContext.Consumer>
             {context => (
                 <>
-                    <div className="container mt-5">
-                        <form className="registration-form" onSubmit={context.handleRegistration}>
-                            <TextField
-                                id="firstname"
-                                className={classNames(classes.margin, classes.textField)}
-                                variant="outlined"
-                                label="სახელი"
-                                onChange={handleChange('firstname')}
+                    <div className="hero center-box">
+                        <div className="container">
+                            <form className="registration-form" onSubmit={context.handleRegistration}>
+                                <TextField
+                                    id="firstname"
+                                    className={classNames(classes.margin, classes.textField)}
+                                    variant="outlined"
+                                    label="სახელი"
+                                    onChange={handleChange('firstname')}
 
-                            />
+                                />
 
-                            <TextField
-                                id="lastname"
-                                className={classNames(classes.margin, classes.textField)}
-                                variant="outlined"
-                                label="გვარი"
-                                onChange={handleChange('lastname')}
+                                <TextField
+                                    id="lastname"
+                                    className={classNames(classes.margin, classes.textField)}
+                                    variant="outlined"
+                                    label="გვარი"
+                                    onChange={handleChange('lastname')}
 
-                            />
+                                />
 
-                            <TextField
-                                id="email"
-                                className={classNames(classes.margin, classes.textField)}
-                                variant="outlined"
-                                label="ელ.ფოსტა"
-                                onChange={handleChange('email')}
+                                <TextField
+                                    id="email"
+                                    className={classNames(classes.margin, classes.textField)}
+                                    variant="outlined"
+                                    label="ელ.ფოსტა"
+                                    onChange={handleChange('email')}
 
-                            />
-                            <TextField
-                                id="password"
-                                className={classNames(classes.margin, classes.textField)}
-                                variant="outlined"
-                                type={values.showPassword ? 'text' : 'password'}
-                                label="პაროლი"
-                                onChange={handleChange('password')}
-                                InputProps={{
-                                    endAdornment: (
-                                        <InputAdornment position="end">
-                                            <IconButton aria-label="Toggle password visibility" onClick={handleClickShowPassword}>
-                                                {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                            </IconButton>
-                                        </InputAdornment>
-                                    ),
-                                }}
-                            />
-                            <Button type="submit" variant="contained" color="primary" className="registration-button">
-                                რეგისტრაცია
+                                />
+                                <TextField
+                                    id="password"
+                                    className={classNames(classes.margin, classes.textField)}
+                                    variant="outlined"
+                                    type={values.showPassword ? 'text' : 'password'}
+                                    label="პაროლი"
+                                    onChange={handleChange('password')}
+                                    InputProps={{
+                                        endAdornment: (
+                                            <InputAdornment position="end">
+                                                <IconButton aria-label="Toggle password visibility" onClick={handleClickShowPassword}>
+                                                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        ),
+                                    }}
+                                />
+                                <div className="text-center">
+                                    <Button type="submit" variant="contained" color="primary" className="registration-button">
+                                        რეგისტრაცია
       </Button>
-
-                            {context.state.errors ? (
-                                <div className="alerts mt-2">
-                                    <div className="custom-alert_danger">{context.state.errors}</div>
                                 </div>
-                            ) : null}
 
-                            {context.state.success ? (
-                                <div className="alerts mt-2">
-                                    <div className="custom-alert_success">{context.state.success}</div>
+                                {context.state.errors ? (
+                                    <div className="alerts mt-2">
+                                        <div className="custom-alert_danger p-3 text-center">{context.state.errors}</div>
+                                    </div>
+                                ) : null}
+
+                                {context.state.success ? (
+                                    <div className="alerts mt-2">
+                                        <div className="custom-alert_success p-3 text-center">{context.state.success}</div>
+                                    </div>
+                                ) : null}
+
+
+                                <div className="text-center ">
+                                    <p className="lead">
+                                        <a href="/">მთავარი</a> / <a href="/login">ავტორიზაცია</a>
+                                    </p>
                                 </div>
-                            ) : null}
-
-
-
-                        </form>
+                            </form>
+                        </div>
                     </div>
 
                 </>

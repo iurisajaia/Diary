@@ -9,6 +9,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import FacebookLogin from "react-facebook-login";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -46,38 +47,63 @@ function OutlinedInputAdornments() {
         <MyContext.Consumer>
             {context => (
                 <>
-        <div className="container mt-5">
-            <form className="registration-form" onSubmit={context.hadleLogin}>
-                <TextField
-                    id="loginEmail"
-                    className={classNames(classes.margin, classes.textField)}
-                    variant="outlined"
-                    label="ელ.ფოსტა"
-                    onChange={handleChange('email')}
-                />
-                <TextField
-                    id="loginPassword"
-                    className={classNames(classes.margin, classes.textField)}
-                    variant="outlined"
-                    type={values.showPassword ? 'text' : 'password'}
-                    label="პაროლი"
-                    onChange={handleChange('password')}
-                    InputProps={{
-                        endAdornment: (
-                            <InputAdornment position="end">
-                                <IconButton aria-label="Toggle password visibility" onClick={handleClickShowPassword}>
-                                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                </IconButton>
-                            </InputAdornment>
-                        ),
-                    }}
-                />
-                <Button type="submit" variant="contained" color="primary" className="registration-button">
-                    შესვლა
+                    <div className="hero center-box">
+                        <div className="container">
+                            <form className="registration-form" onSubmit={context.hadleLogin}>
+                                <TextField
+                                    id="loginEmail"
+                                    className={classNames(classes.margin, classes.textField)}
+                                    variant="outlined"
+                                    label="ელ.ფოსტა"
+                                    onChange={handleChange('email')}
+                                />
+                                <TextField
+                                    id="loginPassword"
+                                    className={classNames(classes.margin, classes.textField)}
+                                    variant="outlined"
+                                    type={values.showPassword ? 'text' : 'password'}
+                                    label="პაროლი"
+                                    onChange={handleChange('password')}
+                                    InputProps={{
+                                        endAdornment: (
+                                            <InputAdornment position="end">
+                                                <IconButton aria-label="Toggle password visibility" onClick={handleClickShowPassword}>
+                                                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        ),
+                                    }}
+                                />
+                                <div className="text-center">
+                                    <Button type="submit" variant="contained" color="primary" className="registration-button">
+                                        შესვლა
       </Button>
-            </form>
-        </div>
-        </>
+
+
+                                </div>
+                                <div className="text-center ">
+                                    <p className="lead">
+                                        <a href="/">მთავარი</a> / <a href="/registration">რეგისტრაცია</a>
+                                    </p>
+                                </div>
+
+
+                            </form>
+                            <div className="text-center mt-2">
+                                <FacebookLogin
+                                    appId="652531571871133"
+                                    cookie={true}
+                                    xfbml={true}
+                                    version='2.8'
+                                    autoLoad={false}
+                                    fields="name,email,friends,picture"
+                                    scope="public_profile,email,user_friends"
+                                    disableMobileRedirect={true}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </>
             )}
         </MyContext.Consumer>
     );
