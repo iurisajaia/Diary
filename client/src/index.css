@@ -38,6 +38,12 @@ a {
     -moz-transition: all .35s;
     transition: all .35s;
 }
+.public-user-info{
+    padding-bottom: 10px;
+    display:inline-block;
+    margin:30px auto;
+    border-bottom: dotted 1px rgba(0, 0, 0, 0.35);
+}
 a:hover,
 a:focus {
     color: #fff !important;
@@ -513,4 +519,22 @@ section .inner{
     font-family: pbg_arial;
     border-radius: 3px;
     box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12);
+  }
+
+
+
+
+
+  /* Responsive */
+
+  @media only screen and (max-width: 768px) {
+    .hero{
+        height:auto;
+    }
+    .registration-form{
+        width: auto;
+    }
+    section .inner{
+        padding: 4em 1em 2em 1em;
+    }
   }

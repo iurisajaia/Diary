@@ -53,7 +53,10 @@ class Friends extends Component {
                                     <div className="mt-4 mb-4">
                                         {user ? (
                                             <>
-                                                <h2>{user.from.firstname} {user.from.lastname}</h2>
+                                                <div className="text-center">
+
+                                                    <h2>{user.from.firstname} {user.from.lastname}</h2>
+                                                </div>
                                                 <div className="diary-single">
                                                     <ul className="friends-questions answers-list">
 

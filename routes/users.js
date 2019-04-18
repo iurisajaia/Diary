@@ -255,6 +255,7 @@ router.post('/handle-diary', async (req, res) => {
 
     try {
         const { question, answer, from, to } = req.body;
+        console.log(req.body)
         var questions = [];
         var answers = [];
 
@@ -262,13 +263,13 @@ router.post('/handle-diary', async (req, res) => {
             questions.push(question[i])
             answers.push(answer[i])
         }
+        console.log(questions)
         const diary = new Diary({
             question: questions,
             answer: answers,
             from,
             to
         })
-
         diary.save();
 
         res.status(200).json({ diary })

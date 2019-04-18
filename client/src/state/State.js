@@ -176,7 +176,9 @@ class MyProvider extends Component {
     })
       .then(res => res.json())
       .then(res => {
-        console.log(res)
+        if (res.diary) {
+          this.setState({ success: 'დღიური წარმატებით შეივსო' })
+        }
       })
       .catch(error => {
         console.error(error);

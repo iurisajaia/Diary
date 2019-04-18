@@ -79,8 +79,10 @@ class PublicDiary extends Component {
                                                         <>
                                                             <div className="public-diary-container">
                                                                 {user ? (
-
-                                                                    <h3>{user.firstname}</h3>
+                                                                    <>
+                                                                        <h3 className="public-user-info">💚 {user.firstname} {user.lastname} 💙</h3>
+                                                                        <br />
+                                                                    </>
                                                                 ) : null}
                                                                 <form className="" onSubmit={context.handlePublicDiary}>
                                                                     {questions.map(question => {
@@ -96,8 +98,16 @@ class PublicDiary extends Component {
                                                                             </div>
                                                                         )
                                                                     })}
+
+
+
                                                                     <button className="btn btn-success">შევსება</button>
                                                                 </form>
+                                                                {context.state.success ? (
+                                    <div className="alerts mt-2">
+                                        <div className="custom-alert_success p-3 text-center">{context.state.success}</div>
+                                    </div>
+                                ) : null}
                                                             </div>
                                                         </>
                                                     ) : <p>დღიური ცარიელია</p>}

@@ -22,6 +22,10 @@ const DiarySchema = new Schema({
         ref: "users",
         required: true
     },
+    sticker: {
+        type: String,
+        default: false
+    },
 
 
     date: {
