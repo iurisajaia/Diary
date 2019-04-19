@@ -18,25 +18,29 @@ class Friends extends Component {
             <MyContext.Consumer>
                 {context => (
                     <>
-                        <section class="bg-style3" id="about">
-                            <div class="container">
-                                <div class="inner">
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <h2 class="text-white text-uppercase">მეგობრები 👩‍🦱👨‍🦱</h2>
+                        <section className="bg-style3" id="about">
+                            <div className="container">
+                                <div className="inner">
+                                    <div className="row">
+                                        <div className="col-xs-12">
+                                            <h2 className="text-white text-uppercase">მეგობრები
+                                            <span role="img" aria-label="emoji">
+                                                    👩‍🦱👨‍🦱
+                                            </span>
+                                            </h2>
 
                                         </div>
                                     </div>
-                                    <div class="row d-md-flex mt-4 text-center">
+                                    <div className="row d-md-flex mt-4 text-center">
 
                                         {friends && friends.length > 0 ? (
                                             <>
                                                 {friends.map(friend => {
                                                     return (
 
-                                                        <div class="col-sm-3 mt-2 wow fadeIn friends-item" title={friend.from.firstname} key={friend._id} onClick={() => this.singleFriend(friend)}>
-                                                            <img src={`${friend.from.image}`} alt={friend.from.firstname} class="img-team img-fluid rounded-circle" />
-                                                            <h5 class="card-title pt-4">{friend.from.firstname + ' ' + friend.from.lastname}</h5>
+                                                        <div className="col-sm-3 mt-2 wow fadeIn friends-item" title={friend.from.firstname} key={friend._id} onClick={() => this.singleFriend(friend)}>
+                                                            <img src={`${friend.from.image}`} alt={friend.from.firstname} className="img-team img-fluid rounded-circle" />
+                                                            <h5 className="card-title pt-4">{friend.from.firstname + ' ' + friend.from.lastname}</h5>
                                                         </div>
 
 

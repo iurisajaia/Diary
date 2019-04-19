@@ -9,26 +9,37 @@ class Section1 extends Component {
             <MyContext.Consumer>
                 {context => (
                     <>
-                        <section class="hero bg-primary" id="home">
-                            <div class="container">
-                                <div class="inner align-middle wow fadeIn">
+                        <section className="hero bg-primary" id="home">
+                            <div className="container">
+                                <div className="inner align-middle wow fadeIn">
                                     {context.state.user ? (
                                         <>
-                                            <h2 class="pt-5 text-white text-uppercase">გამარჯობა {context.state.user.firstname} 👋</h2>
+                                            <h2 className="pt-5 text-white text-uppercase">გამარჯობა {context.state.user.firstname}
+                                                <span role="img" aria-label="emoji">
+                                                    👋
+                                            </span>
+                                            </h2>
                                         </>
                                     ) : (
                                             <>
-                                                <h2 class="pt-5 text-white text-uppercase">გამარჯობა უცნობო 👋</h2>
+                                                <h2 className="pt-5 text-white text-uppercase">გამარჯობა უცნობო
+                                                <span role="img" aria-label="emoji">
+                                                        👋
+                                                 </span>
+                                                </h2>
                                             </>
                                         )}
-                                    <p class="lead mt-5">
+                                    <p className="lead mt-5">
                                         შენ მოხვდი მეგობრობის დღიურში, საიდანაც შეგიძლია შექმნა საკუთარი დღიური და შესავსებად გაუზიარო მეგობრებს.
 
 
                                     </p>
                                     <br />
-                                    <p class="lead mt-1">
-                                        👉  გაიარე
+                                    <p className="lead mt-1">
+                                        <span role="img" aria-label="emoji">
+                                            👉
+                                    </span>
+                                        გაიარე
                                         <a href="/login"> ავტორიზაცია</a>  ან <a href="/registration">დარეგისტრირდი</a>
                                     </p>
 

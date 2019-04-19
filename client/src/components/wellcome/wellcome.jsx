@@ -12,9 +12,9 @@ class FrontPage extends Component {
                     <>
 
 
-                        <section class="bg-alt hero p-0">
-                            <div class="container-fluid">
-                                <div class="row">
+                        <section className="bg-alt hero p-0">
+                            <div className="container-fluid">
+                                <div className="row">
                                     <LeftSide />
                                     <RightSide />
                                 </div>

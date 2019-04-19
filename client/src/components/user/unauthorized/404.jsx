@@ -8,7 +8,7 @@ class NotFound extends Component {
             <>
                 <div className="unauthorized-box">
                     <div>
-                        👻
+                        <span role="img" aria-label="emoji"> 👻 </span>
                         <p className="lead">გვერდი ვერ მოიძებნა </p>
 
                         <a className="reg-href" href="/">მთავარი გვერდი</a>

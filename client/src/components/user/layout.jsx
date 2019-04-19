@@ -39,9 +39,9 @@ class UserLayout extends Component {
                         {context.state.user ? (
                             <>
                                 {this.props.id === context.state.user._id ? (
-                                    <section class="bg-alt hero p-0">
-                                        <div class="container-fluid">
-                                            <div class="row">
+                                    <section className="bg-alt hero p-0">
+                                        <div className="container-fluid">
+                                            <div className="row">
                                                 <User />
                                                 <Content diary={this.state.diary} />
                                             </div>

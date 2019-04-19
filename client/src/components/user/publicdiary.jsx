@@ -46,14 +46,14 @@ class PublicDiary extends Component {
                     <>
                         {context.state.user ? (
                             <>
-                                <section class="bg-alt hero p-0">
-                                    <div class="container-fluid">
-                                        <div class="row">
+                                <section className="bg-alt hero p-0">
+                                    <div className="container-fluid">
+                                        <div className="row">
                                             <>
-                                                <div class="col-sm-3 bg-primary-dark py-5 col-fixed text-center">
-                                                    <div class="mb-5 text-center">
+                                                <div className="col-sm-3 bg-primary-dark py-5 col-fixed text-center">
+                                                    <div className="mb-5 text-center">
                                                         <div className="user-image-box">
-                                                            <div class="main-heading">
+                                                            <div className="main-heading">
                                                                 <img src={`${context.state.user.image}`} alt="" className="user-img" />
                                                             </div>
 
@@ -62,18 +62,18 @@ class PublicDiary extends Component {
 
 
                                                     </div>
-                                                    <ul class="nav flex-column menu-left mt-5">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link page-scroll" href={`/profile/${context.state.user._id}`}>მთავარი</a>
+                                                    <ul className="nav flex-column menu-left mt-5">
+                                                        <li className="nav-item">
+                                                            <a className="nav-link page-scroll" href={`/profile/${context.state.user._id}`}>მთავარი</a>
                                                         </li>
 
                                                     </ul>
 
-                                                    <p class="small">&copy; ი.ს </p>
+                                                    <p className="small">&copy; ი.ს </p>
                                                 </div>
                                             </>
                                             <>
-                                                <div class="col-sm-9 offset-sm-3 px-0 relative">
+                                                <div className="col-sm-9 offset-sm-3 px-0 relative">
 
                                                     {questions && questions.length > 0 ? (
                                                         <>
@@ -104,10 +104,10 @@ class PublicDiary extends Component {
                                                                     <button className="btn btn-success">შევსება</button>
                                                                 </form>
                                                                 {context.state.success ? (
-                                    <div className="alerts mt-2">
-                                        <div className="custom-alert_success p-3 text-center">{context.state.success}</div>
-                                    </div>
-                                ) : null}
+                                                                    <div className="alerts mt-2">
+                                                                        <div className="custom-alert_success p-3 text-center">{context.state.success}</div>
+                                                                    </div>
+                                                                ) : null}
                                                             </div>
                                                         </>
                                                     ) : <p>დღიური ცარიელია</p>}

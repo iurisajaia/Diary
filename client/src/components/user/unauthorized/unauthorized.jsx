@@ -8,11 +8,11 @@ class Unauthorized extends Component {
             <>
                 <div className="unauthorized-box">
                     <div>
-                        🙊
+                        <span role="img" aria-label="emoji" >🙊 </span>
                         <p className="lead">შიგთავსის სანახავად საჭიროა
                         <a href="/login"> ავტორიზაცია </a></p>
 
-                        <a className="reg-href" href="/registration">ჯერ არ დარეგისტრირებულხართ?  🤨</a>
+                        <a className="reg-href" href="/registration">ჯერ არ დარეგისტრირებულხართ? <span role="img" aria-label="emoji"> 🤨  </span></a>
                     </div>
                 </div>
             </>

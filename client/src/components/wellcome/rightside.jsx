@@ -14,7 +14,7 @@ class RightSide extends Component {
             <MyContext.Consumer>
                 {context => (
                     <>
-                        <div class="col-sm-9 offset-sm-3 px-0 relative">
+                        <div className="col-sm-9 offset-sm-3 px-0 relative">
                             <Section1 />
                             <Section2 />
                             <Section3 />

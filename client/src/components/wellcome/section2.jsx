@@ -9,11 +9,11 @@ class Section1 extends Component {
             <MyContext.Consumer>
                 {context => (
                     <>
-                        <section class="hero bg-style1" id="rules">
-                            <div class="container">
-                                <div class="inner align-middle wow fadeIn">
+                        <section className="hero bg-style1" id="rules">
+                            <div className="container">
+                                <div className="inner align-middle wow fadeIn">
 
-                                    <p class="lead mt-1">
+                                    <p className="lead mt-1">
                                         აქ იქნება საიტის მუშაობის პრინციპი და ზოგადი წესები
                                     </p>
 

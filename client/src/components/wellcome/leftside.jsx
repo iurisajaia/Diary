@@ -12,13 +12,13 @@ class LeftSide extends Component {
             <MyContext.Consumer>
                 {context => (
                     <>
-                        <div class="col-sm-3 bg-primary-dark py-5 col-fixed text-center">
-                            <div class="mb-5 text-center">
+                        <div className="col-sm-3 bg-primary-dark py-5 col-fixed text-center">
+                            <div className="mb-5 text-center">
                                 <div className="user-image-box">
 
                                     {context.state.user ? (
                                         <>
-                                            <div class="main-heading">
+                                            <div className="main-heading">
                                                 <img src={`${context.state.user.image}`} alt="" className="user-img" />
                                             </div>
                                             <br /><br />
@@ -32,15 +32,15 @@ class LeftSide extends Component {
 
 
                             </div>
-                            <ul class="nav flex-column menu-left mt-5">
-                                <li class="nav-item">
-                                    <a class="nav-link page-scroll" href="#home">მთავარი</a>
+                            <ul className="nav flex-column menu-left mt-5">
+                                <li className="nav-item">
+                                    <a className="nav-link page-scroll" href="#home">მთავარი</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link page-scroll" href="#rules">წესები</a>
+                                <li className="nav-item">
+                                    <a className="nav-link page-scroll" href="#rules">წესები</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link page-scroll" href="#contact">რამე გვერდი</a>
+                                <li className="nav-item">
+                                    <a className="nav-link page-scroll" href="#contact">რამე გვერდი</a>
                                 </li>
 
                             </ul>
