@@ -481,7 +481,7 @@ section .inner{
       margin: auto;
       padding: 10px 30px;
   }
-  .MuiInputAdornment-positionEnd-58 {
+  .MuiInputAdornment-positionEnd-58 , .jss58 {
     position: absolute!important;
     right: -85%!important;
   }
