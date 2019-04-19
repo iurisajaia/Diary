@@ -30,7 +30,7 @@ class App extends Component {
             <PublicDiary path='/diary/:id' />
             <Registration path="/registration" />
             <Login path="/login" />
-            <UserLayout path="/profile/:id" />
+            <UserLayout path="/user/:id" />
             <NotFound path="*" />
           </Router>
         </MyProvider>
