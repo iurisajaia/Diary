@@ -13,7 +13,6 @@ class Friends extends Component {
     render() {
         const friends = this.props.diary;
         const user = this.state.user;
-
         return (
             <MyContext.Consumer>
                 {context => (
@@ -64,24 +63,19 @@ class Friends extends Component {
                                                 <div className="diary-single">
                                                     <ul className="friends-questions answers-list">
 
-                                                        {user.question.map(q => {
+                                                        {user.combined.map(q => {
                                                             return (
                                                                 <>
+
                                                                     <li className="questions-li" key={q}>{q}</li>
+
+
+
                                                                 </>
                                                             )
                                                         })}
 
-                                                        <div className="friends-answers">
 
-                                                            {user.answer.map(a => {
-                                                                return (
-                                                                    <>
-                                                                        <li key={a}>{a}</li>
-                                                                    </>
-                                                                )
-                                                            })}
-                                                        </div>
 
                                                     </ul>
 

@@ -233,7 +233,7 @@ section .inner{
     padding: 10px 0 10px 0;
     color: #000000;
     position: relative;
-    
+    word-wrap: break-word;
   }
   .home-list li:nth-child(odd) {
     text-align: center;
@@ -274,24 +274,23 @@ section .inner{
     color: #000000;
     text-align: center;
     border-bottom: 1px solid #86bfff;
-    padding-bottom: 50px;
+    word-wrap: break-word;
     
+}
+.answers-list li:nth-child(odd){
+    border-bottom:none;
+    
+}
+.answers-list li:nth-child(even){
+    font-style: italic;
+    font-weight: bold;
 }
 .friends-questions{
     position: relative;
  }
-
- .friends-answers{
-    position: absolute;
-    width: 100%;
-    top: 70px;
-    left: 0;
-  }
   .friends-answers li {
-    padding-bottom: 50px;
-    font-style: italic;
-    border:none;
-    font-weight: bold;
+    
+    word-wrap: break-word;
   }
 
   .modal-box{
@@ -302,10 +301,10 @@ section .inner{
     color: #3f51b5!important;
     background-color: #fff!important;
 }
-.MuiDialog-paperWidthSm-31 {
+.MuiDialog-paperWidthSm-31, .jss31 {
     width: 600px;
 }
-.MuiFormControl-marginNormal-115 {
+.MuiFormControl-marginNormal-115,.jss115 {
     width: 100%!important;
 }
 .friends-item{
@@ -411,6 +410,7 @@ section .inner{
       list-style-type: none;
       margin-bottom: 10px;
       font-size:20px;
+      word-break: break-all;
   }
   .public-diary-container li span {
       margin-right: 30px;

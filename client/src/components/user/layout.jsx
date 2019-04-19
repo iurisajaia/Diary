@@ -20,7 +20,17 @@ class UserLayout extends Component {
             .then(res => res.json())
             .then(res => {
                 if (res.diary) {
-
+                    // var sum = []
+                    // for (let i = 0; i < res.diary.length; i++) {
+                    //     var diaries = res.diary[i]
+                    //     // console.log(diaries)
+                    //     for (let a = 0; a < diaries.question.length; a++) {
+                    //         sum.push(diaries.question[a]);
+                    //         sum.push(diaries.answer[a]);
+                    //     }
+                    // }
+                    // console.log(sum)
+                    console.log(res.diary)
                     this.setState({ diary: res.diary })
                 }
             })
@@ -32,6 +42,7 @@ class UserLayout extends Component {
 
 
     render() {
+
         return (
             <MyContext.Consumer>
                 {context => (

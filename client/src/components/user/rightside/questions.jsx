@@ -35,9 +35,8 @@ class Questions extends Component {
                                                                 {question}
                                                                 <span
                                                                     title="წაშლა" className="remove-icon" onClick={context.removeQuestion} data-question={question} >
-                                                                    <span role="img" aria-label="emoji">
-                                                                        🗑
-                                                                    </span>
+
+                                                                    🗑
                                                                 </span>
                                                             </li>
 

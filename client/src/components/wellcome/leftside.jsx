@@ -22,7 +22,7 @@ class LeftSide extends Component {
                                                 <img src={`${context.state.user.image}`} alt="" className="user-img" />
                                             </div>
                                             <br /><br />
-                                            <a href={`/profile/${context.state.user._id}`}>ჩემი დღიური</a>
+                                            <a href={`/user/${context.state.user._id}`}>ჩემი დღიური</a>
                                         </>
                                     ) : <img src='http://subhagamirealestate.com/wp-content/u1.png' alt="" className="user-img" />}
 
