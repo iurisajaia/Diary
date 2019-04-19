@@ -6,7 +6,6 @@ import { MyContext } from './state/State';
 import FrontPage from './components/wellcome/wellcome'
 import Registration from './components/auth/registration';
 import Login from './components/auth/login';
-import Layout from './components/profile/layout/layout';
 import PublicDiary from './components/user/publicdiary';
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
@@ -26,7 +25,7 @@ class App extends Component {
           <Router>
 
 
-            <Layout path="/oldprofile/:id" />
+
             <FrontPage path="/" />
             <PublicDiary path='/diary/:id' />
             <Registration path="/registration" />
