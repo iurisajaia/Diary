@@ -64,7 +64,7 @@ class PublicDiary extends Component {
                                                     </div>
                                                     <ul className="nav flex-column menu-left mt-5">
                                                         <li className="nav-item">
-                                                            <a className="nav-link page-scroll" href={`/profile/${context.state.user._id}`}>მთავარი</a>
+                                                            <a className="nav-link page-scroll" href={`/user/${context.state.user._id}`}>მთავარი</a>
                                                         </li>
 
                                                     </ul>

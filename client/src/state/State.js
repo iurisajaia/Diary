@@ -141,7 +141,7 @@ class MyProvider extends Component {
           localStorage.setItem("user", res.token);
           var decoded = jwt_decode(res.token);
           this.setState({ user: decoded })
-          window.location = `/profile/${decoded._id}`;
+          window.location = `/user/${decoded._id}`;
         }
         if (res.msg) {
           this.setState({ errors: res.msg })

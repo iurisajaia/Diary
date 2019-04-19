@@ -62,7 +62,7 @@ class User extends Component {
                                     <a className="nav-link page-scroll" href="#about" rel="noopener">მეგობრები</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link page-scroll" target="_blank" href={`/diary/${context.state.user._id}`} rel="noopener">ჩემი დღიური <i className="fas fa-external-link-alt"></i></a>
+                                    <a className="nav-link page-scroll" target="_blank" href={`/public/${context.state.user._id}`} rel="noopener">ჩემი დღიური <i className="fas fa-external-link-alt"></i></a>
                                 </li>
                             </ul>
 

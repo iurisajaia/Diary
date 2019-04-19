@@ -27,7 +27,7 @@ class App extends Component {
 
 
             <FrontPage path="/" />
-            <PublicDiary path='/diary/:id' />
+            <PublicDiary path='/public/:id' />
             <Registration path="/registration" />
             <Login path="/login" />
             <UserLayout path="/user/:id" />
