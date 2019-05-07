@@ -14,7 +14,7 @@ class Section1 extends Component {
                                 <div className="inner align-middle wow fadeIn">
 
                                     <p className="lead mt-1">
-                                        აქ იქნება რამე...
+                                        ცარიელი სივრცე
                                     </p>
 
 

@@ -102,7 +102,7 @@ function OutlinedInputAdornments() {
 
 
                             </form>
-                            <div className="text-center mt-2">
+                            {/* <div className="text-center mt-2">
                                 <FacebookLogin
                                     appId="652531571871133"
                                     cookie={true}
@@ -113,7 +113,7 @@ function OutlinedInputAdornments() {
                                     scope="public_profile,email,user_friends"
                                     disableMobileRedirect={true}
                                 />
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </>
